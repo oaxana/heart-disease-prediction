@@ -3,8 +3,16 @@
 
 #### Executive summary
 
+This project aims to develop a predictive model for assessing heart disease risk using data from the CDC's 2022 telephone interviews, which includes 445,000 responses. The model is designed to provide actionable insights for both individuals and medical practitioners. For individuals, it offers a user-friendly dashboard to assess their risk level based on health factors, lifestyle choices, and medical history, empowering them to make informed decisions about their health. For medical practitioners, it enhances patient care by providing accurate risk assessments and optimizing resource allocation for high-risk patients.
 
-#### Rationale
+The dataset is highly imbalanced, with only 6% of respondents classified as having heart disease. To address this, several machine learning models were developed, including Logistic Regression, Decision Trees, Random Forests, XGBoost. These models were evaluated primarily on recall and F1 score to ensure effective identification of positive cases.
+
+The XGBoost model demonstrated the best performance with a recall score of 0.7951, an F1 score of 0.3020, an accuracy of 0.8025, and an ROC AUC score of 0.7990. These results indicate somewhat good performance, particularly in identifying positive cases, though there is room for improvement, especially in the F1 score. This highlights the need for further refinement.
+
+#### Research Question
+Based on a person’s health factors, lifestyle choices and demographics, what is the likely risk of heart disease?
+
+#### Rationale: Why is this important?
 
 1. For Individuals:
 - Staying Informed: A user-friendly dashboard will allow individuals to input their health factors, lifestyle choices, and medical history to determine their risk level for heart disease.
@@ -14,11 +22,8 @@
 - Enhanced Patient Care: Practitioners can use the model to assess patient risk more accurately, providing targeted advice and interventions to mitigate heart disease risk.
 - Resource Optimization: Risk assessments enable healthcare facilities to allocate resources more efficiently, prioritizing high-risk patients for more intensive monitoring and care, thereby improving overall healthcare delivery.
 
-#### Research Question
-Based on a person’s health factors, lifestyle choices and demographics, what is the likely risk of heart disease?
-
 #### Data Sources
-Indicators of Heart Disease Dataset from Kaggle: https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease/data
+[Indicators of Heart Disease Dataset from Kaggle](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease/data)
 - 2022 data collected by CDC via telephone interviews
 - 445k responses with 40 variables
 - 2020 data is also available for reference
@@ -43,21 +48,33 @@ Below are a few models I'm building to create a first draft of this project:
 
 
 #### Results
-What did your research find?
+To evaluate prediction models, I focus on the following metrics:
+- Primary Metric: Recall – Ensure that you identify as many actual positive cases as possible, minimizing the number of false negatives (FN)
+- Secondary Metric: F1 Score – Balance precision and recall to have a more balanced evaluation of model performance.
+
+The model with the best Recall score was XGBoost.  Below are evaluation metrics for this model:
+
+Recall: 0.7951
+F1 Score: 0.3020
+Accuracy: 0.8025
+ROC AUC Score: 0.7990
+
+The Top Features of Importance, listed in descending order, from the XGBoost model:
+- Had_Angina_YES
+- ChestScan_YES
+- AgeCategory (ordered oldest to youngest)
+- DifficultyWalking_YES
+- GeneralHealth (ordered from worst to best)
 
 
 #### Next steps
-What suggestions do you have for next steps?
-
-Neural Networks:
-To capture complex, non-linear relationships between health factors, lifestyle choices, and heart disease risk.
-Use techniques like class weighting, oversampling, or undersampling to address imbalances.
-
+- Review initial draft with learning instructor and brainstorm ways to improve the prediction model
+- Re-examine feature list and remove any features that are not adding value
+- Examine data from 2020 to see if it can be used to augment the 2022 dataset
+- Reasearcha and test other techniques for dealing with class imbalance
+- Try building a Neural Networks model to capture complex, non-linear relationships in the dataset
 
 #### Outline of project
 
 - [Link to notebook 1]()
 
-
-
-G
