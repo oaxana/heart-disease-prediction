@@ -45,6 +45,8 @@ Below are a few models I'm building to create a first draft of this project:
 4. Gradient Boosting Machines (GBM):
 - To enhance predictive performance by sequentially correcting the errors of a series of weak learners (decision trees).
 - Implement XGBoost with appropriate parameters to handle imbalances in the data.
+5. Use GridSearchCV to find the Best Parameters for the best performing model
+
 
 
 ### Results
@@ -52,27 +54,29 @@ Below are a few models I'm building to create a first draft of this project:
 - Primary Metric: Recall – Ensure that you identify as many actual positive cases as possible, minimizing the number of false negatives (FN)
 - Secondary Metric: F1 Score – Balance precision and recall to have a more balanced evaluation of model performance.
 
-2. The model with the best Recall score was XGBoost.  Below are evaluation metrics for this model:
-- Recall: 0.7951
-- F1 Score: 0.3020
-- Accuracy: 0.8025
-- ROC AUC Score: 0.7990
+2. The model with the best Recall score was XGBoost with Undersampling.  Below are evaluation metrics for this model:
+- Recall: 0.91
+- F1 Score: 0.30
+- Accuracy: 0.64
+- ROC AUC Score: 0.76
+- Training Time: 0.39 seconds
+- Undersampling: Positive Class = 30% of total
+- Best Parameters: colsample_bytree: 0.7, learning_rate: 0.005, max_depth: 5, n_estimators: 100, scale_pos_weight: 4.3333, subsample: 0.9
+
 
 3. The Top Features of Importance, listed in descending order, from the XGBoost model:
-- Had_Angina_YES
-- ChestScan_YES
-- AgeCategory (ordered oldest to youngest)
-- DifficultyWalking_YES
-- GeneralHealth (ordered from worst to best)
+- Had_Angina_YES (23,052)
+- AgeCategory: ordered oldest to youngest (1,987)
+- GeneralHealth: ordered from worst to best (1,832)
+- DifficultyWalking_YES (1,225)
+- HadStroke_YES (585)
+- HadChestScan_YES (565)
+- RemovedTeeth: ordered from most to least (465)
+- HadDiabetes: ordered from worst case to least (349)
+- HadArthritis_YES: (301)
 
-### Next steps
-- Review initial draft with learning instructor and brainstorm ways to improve the prediction model
-- Re-examine feature list and remove any features that are not adding value
-- Examine data from 2020 to see if it can be used to augment the 2022 dataset
-- Reasearcha and test other techniques for dealing with class imbalance
-- Try building a Neural Networks model to capture complex, non-linear relationships in the dataset
 
-### Outline of project
+### Link to the Project
 
 - [Link to Jupyter Notebook](https://github.com/oaxana/heart-disease-prediction/blob/main/Heart_Disease_Prediction_03.ipynb)
 
