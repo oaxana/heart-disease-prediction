@@ -78,5 +78,5 @@ Below are a few models I'm building to create a first draft of this project:
 
 ### Link to the Project
 
-- [Link to Jupyter Notebook](https://github.com/oaxana/heart-disease-prediction/blob/main/Heart_Disease_Prediction_03.ipynb)
+- [Link to Jupyter Notebook](https://github.com/oaxana/heart-disease-prediction/blob/main/Heart_Disease_Prediction_FINAL.ipynb)
 
